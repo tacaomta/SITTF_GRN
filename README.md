@@ -10,7 +10,7 @@ The implementation consists of two experimental workflows: **Toy Dataset** and *
 
 ## 1. Toy Dataset
 
-The toy dataset is generated according to the experimental settings described in Tables S2 and S3 of the Supplementary Materials. These settings include the predefined network sizes, number of networks, number of profiles per structure, and number of time steps.
+The toy dataset is generated according to the experimental settings described in the Table S2 of the Supplementary Materials. These settings include the predefined network sizes, number of networks, number of profiles per structure, and number of time steps.
 
 ### 1.1 Data Generation
 
@@ -34,7 +34,7 @@ This module trains the selected machine learning models using the prepared datas
 
 ## 2. *E. coli* Dataset
 
-The *E. coli* dataset is generated using **GeneNetWeaver (GNW)**, following the experimental settings described in Tables S2 and S3 of the Supplementary Materials.
+The *E. coli* dataset is generated using **GeneNetWeaver (GNW)**, following the experimental settings described in the Table S3 of the Supplementary Materials.
 
 ### 2.1 Data Generation
 
@@ -55,12 +55,14 @@ These settings are applied consistently to generate the *E. coli* time-series da
 
 ### 2.2 Data Preparation
 
-The generated *E. coli* expression data are processed and transformed into the unified feature representation required for supervised learning.
+After the dataset generation step, `data_converter.py` is used to read the generated data and prepare it for model training.
 
-The resulting data are divided into training, validation, and testing sets according to the experimental setup.
+Due to computational and memory limitations of the available hardware, the dataset provided in this repository is divided into multiple smaller files. The `data_converter.py` script processes these files and converts the data into the format required for model training.
+
+If sufficient computational resources and memory are available, the generated dataset can alternatively be stored and processed as a single file. In this case, the same data preparation procedure can be applied without splitting the dataset into multiple files.
 
 ### 2.3 Model Training and Evaluation
 
 Model training and performance evaluation are conducted using `gene_models_one_run`.
 
-This module trains the selected machine learning models on the prepared *E. coli* datasets and reports the corresponding evaluation metrics.
+This module trains the selected machine learning models on the prepared *E. coli* datasets and reports the corresponding evaluation metrics using the function `get_report`.
