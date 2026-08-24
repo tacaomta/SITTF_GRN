@@ -40,4 +40,4 @@ The generated data are processed and converted into training, validation, and te
 
 ### 3. Model Training and Evaluation
 
-Model training and performance evaluation are conducted using the script `gene_models_one_run`. This module trains the selected machine learning models and reports the corresponding evaluation metrics.
+Model training and performance evaluation are conducted using the script `gene_models_one_run`. This module trains the selected machine learning models and reports the corresponding evaluation metrics using the function `get_report`.
